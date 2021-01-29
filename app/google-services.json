@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "566311562673",
+    "project_id": "adfourm-ed364",
+    "storage_bucket": "adfourm-ed364.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566311562673:android:a99548f82b1135b0a42190",
+        "android_client_info": {
+          "package_name": "com.team9.spda_team9"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566311562673-jbm6cmcvqg9993pas3g8rd1j2p26dfam.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOlsIM_hRcNLVyZcbG2S-jH-rVNe8S_Hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566311562673-jbm6cmcvqg9993pas3g8rd1j2p26dfam.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
