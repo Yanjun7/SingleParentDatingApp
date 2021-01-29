@@ -1,5 +1,6 @@
 package sg.edu.iss.firebasetest;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,16 @@ public class UserController {
 	@GetMapping("/getUser")
 	public User getUser(@RequestHeader() String username) throws InterruptedException, ExecutionException {
 		return userService.getUser(username);
+	}
+	
+	@GetMapping("/getUsers")
+	public List<User> getUsers() throws InterruptedException, ExecutionException {
+		return userService.getUsers();
+	}
+	
+	@GetMapping("/getUserByFullName")
+	public User getUserByFullName(@RequestHeader() String fullName) throws InterruptedException, ExecutionException {
+		return userService.getUserByfullName(fullName);
 	}
 	
 	@PostMapping("/createUser")
