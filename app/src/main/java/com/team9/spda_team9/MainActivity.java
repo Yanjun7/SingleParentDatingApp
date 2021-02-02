@@ -19,15 +19,20 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements android.view.View.OnClickListener {
     private static final String TAG = "DocSnippets";
     public static final String CONTENT_KEY = "Content";
-    public static final String TITLE_KEY = "Title";
+    public static final String TITLE_KEY = "Topic";
+    public static final String POSTED_ON = "Posted On";
+    String Categories="Child Care";
     Button save ;
 
-    private DocumentReference myForum=FirebaseFirestore.getInstance().document("sampleDate/inspiration");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         save = (Button)findViewById(R.id.btn1) ;
         save.setOnClickListener(this);
     }
@@ -36,14 +41,22 @@ public class MainActivity extends AppCompatActivity implements android.view.View
     public void Saveforum(android.view.View view)
     {
         EditText titleView=(EditText) findViewById(R.id.title);
-        EditText contentView=(EditText) findViewById(R.id.content);
         String titleText=titleView.getText().toString();
+        String path="forum/Categories/"+Categories+"/"+titleText;
+
+        DocumentReference myForum=FirebaseFirestore.getInstance().document(path);
+
+
+        EditText contentView=(EditText) findViewById(R.id.content);
         String contentText=contentView.getText().toString();
+        long timecurrent = System.currentTimeMillis();
 
         if(titleText.isEmpty()||contentText.isEmpty()){return;}
         Map<String,Object> dataToSave=new HashMap<String,Object>();
         dataToSave.put(TITLE_KEY,titleText);
         dataToSave.put(CONTENT_KEY,contentText);
+        dataToSave.put(POSTED_ON,timecurrent);
+
         myForum.set(dataToSave).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
