@@ -6,23 +6,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class SelectCate extends AppCompatActivity implements View.OnClickListener {
+public class SelectTopic extends AppCompatActivity implements View.OnClickListener {
 
-    Button  SelectCate;
+    String Categories="Child Care";
+    Button addtopic ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_cate);
+        setContentView(R.layout.activity_select_topic);
 
-        SelectCate = (Button)findViewById(R.id.button4) ;
-        SelectCate.setOnClickListener(this);
+        addtopic = (Button)findViewById(R.id.add) ;
+        addtopic.setOnClickListener(this);
 
 
     }
 
     @Override
     public void onClick(View v) {
-        setContentView(R.layout.activity_select_topic);
+        setContentView(R.layout.activity_main);
     }
 }

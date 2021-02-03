@@ -73,5 +73,7 @@ public class MainActivity extends AppCompatActivity implements android.view.View
     @Override
     public void onClick(android.view.View v) {
         Saveforum(v);
+        setContentView(R.layout.activity_select_topic);
+
     }
 }

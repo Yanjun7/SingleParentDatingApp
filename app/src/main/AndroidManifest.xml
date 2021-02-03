@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SPDA_Team9">
-        <activity android:name=".SelectCate"></activity>
+        <activity android:name=".SelectTopic"></activity>
+        <activity android:name=".SelectCate" />
         <activity android:name=".Reply" />
         <activity android:name=".MainActivity">
             <intent-filter>
