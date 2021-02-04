@@ -73,7 +73,7 @@ public class TopicNew extends AppCompatActivity implements View.OnClickListener,
 
     @Override
     public void onClick(View v){
-        if(title==null||title.equals(""))
+        if(title==null||title.getText().toString().trim().equals(""))
         {
             new AlertDialog.Builder(TopicNew.this)
                     .setTitle("Error!")
