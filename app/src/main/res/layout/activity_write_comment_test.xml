@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".forum.WriteCommentTest">
+
+    <EditText
+        android:id="@+id/replyId"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="replyId"
+        android:gravity="center"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/commentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="Title"
+        android:gravity="center"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintTop_toBottomOf="@id/replyId"/>
+
+    <EditText
+        android:id="@+id/commentBody"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:hint="Body"
+        android:gravity="center"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintTop_toBottomOf="@id/commentTitle"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/commentSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Submit"
+        app:layout_constraintHeight_percent="0.25"
+        app:layout_constraintTop_toBottomOf="@id/commentBody"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
