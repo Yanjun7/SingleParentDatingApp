@@ -1,3 +1,47 @@
 <resources>
-    <string name="app_name">SPDA_Team9</string>
+
+    <string name="app_name">Test6</string>
+    <string name="title_forum">Home</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_friends">Friend</string>
+    <string name="title_setting">Setting</string>
+    <string name="hello1">Post 1</string>
+    <string name="title_activity_posts">ScrollingActivity</string>
+    <string name="title">This is a title</string>
+    <string name="body">This is a body</string>
+
+
+
+
+    <string name="action_settings">Settings</string>
+    <string-array name="Categories">
+        <item>Dating &amp; Relationships</item>
+        <item>Teenagers</item>
+        <item>Parenting</item>
+        <item>Child Care</item>
+        <item>Finances</item>
+        <item>Dell</item>
+        <item>Mental Health Support</item>
+    </string-array>
+
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chat">Chat</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+
 </resources>
