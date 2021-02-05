@@ -1,4 +1,4 @@
-package sg.edu.iss.firebasetest;
+package sg.edu.iss.firebasetest.forum;
 
 public class Topic {
 	

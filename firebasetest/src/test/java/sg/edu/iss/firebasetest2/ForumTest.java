@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import sg.edu.iss.firebasetest.Forum;
-import sg.edu.iss.firebasetest.ForumService;
-import sg.edu.iss.firebasetest.Topic;
+import sg.edu.iss.firebasetest.forum.Forum;
+import sg.edu.iss.firebasetest.forum.ForumService;
+import sg.edu.iss.firebasetest.forum.Topic;
 
 @SpringBootTest
 class ForumTest {

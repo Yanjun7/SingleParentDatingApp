@@ -1,4 +1,4 @@
-package sg.edu.iss.firebasetest;
+package sg.edu.iss.firebasetest.user;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -23,6 +23,7 @@ public class UserService {
 		Firestore dbFirestore = FirestoreClient.getFirestore();
 		ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(user.getUsername())
 				.set(user);
+		
 		return collectionsApiFuture.get().getUpdateTime().toString();
 	}
 
@@ -48,29 +49,30 @@ public class UserService {
 		}
 	}
 	
-	public User getUserByfullName(String fullName) throws InterruptedException, ExecutionException {
-		Firestore dbFirestore = FirestoreClient.getFirestore();
-		
-		CollectionReference usersList = dbFirestore.collection(COL_NAME);
-		ApiFuture<QuerySnapshot> future = usersList.get();
-		
-		QuerySnapshot result = future.get();
-	
-		List<User> users = null;
-		User user = null;
-		
-		if (!result.isEmpty()) {
-			
-			users = result.toObjects(User.class);
-			
-			user = users.stream().filter(x -> x.getFullName().equals(fullName)).findFirst().get();
-			
-			return user;
-			
-		} else {
-			return null;
-		}
-	}
+	//Example query/search method
+//	public User getUserByfullName(String fullName) throws InterruptedException, ExecutionException {
+//		Firestore dbFirestore = FirestoreClient.getFirestore();
+//		
+//		CollectionReference usersList = dbFirestore.collection(COL_NAME);
+//		ApiFuture<QuerySnapshot> future = usersList.get();
+//		
+//		QuerySnapshot result = future.get();
+//	
+//		List<User> users = null;
+//		User user = null;
+//		
+//		if (!result.isEmpty()) {
+//			
+//			users = result.toObjects(User.class);
+//			
+//			user = users.stream().filter(x -> x.getFullName().equals(fullName)).findFirst().get();
+//			
+//			return user;
+//			
+//		} else {
+//			return null;
+//		}
+//	}
 	
 	//the user's username is the userId/documentId
 	public User getUser(String username) throws InterruptedException, ExecutionException {

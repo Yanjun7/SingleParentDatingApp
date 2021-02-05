@@ -1,4 +1,4 @@
-package sg.edu.iss.firebasetest;
+package sg.edu.iss.firebasetest.user;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -28,10 +28,10 @@ public class UserController {
 		return userService.getUsers();
 	}
 	
-	@GetMapping("/getUserByFullName")
-	public User getUserByFullName(@RequestHeader() String fullName) throws InterruptedException, ExecutionException {
-		return userService.getUserByfullName(fullName);
-	}
+//	@GetMapping("/getUserByFullName")
+//	public User getUserByFullName(@RequestHeader() String fullName) throws InterruptedException, ExecutionException {
+//		return userService.getUserByfullName(fullName);
+//	}
 	
 	@PostMapping("/createUser")
 	public String createUser(@RequestBody User user) throws InterruptedException, ExecutionException {

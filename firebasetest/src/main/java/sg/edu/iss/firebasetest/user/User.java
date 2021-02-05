@@ -1,4 +1,4 @@
-package sg.edu.iss.firebasetest;
+package sg.edu.iss.firebasetest.user;
 
 public class User {
 	private String fullName;

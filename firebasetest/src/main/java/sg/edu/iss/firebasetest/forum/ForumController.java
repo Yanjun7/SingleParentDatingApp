@@ -1,4 +1,4 @@
-package sg.edu.iss.firebasetest;
+package sg.edu.iss.firebasetest.forum;
 
 import java.util.concurrent.ExecutionException;
 
