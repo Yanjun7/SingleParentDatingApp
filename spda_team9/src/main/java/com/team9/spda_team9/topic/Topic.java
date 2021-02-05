@@ -5,7 +5,7 @@ public class Topic {
 	private String title;
 	private String body;
 	private Category category;
-	private String userId;
+	private long userId;
 	
 	public Topic() {	}
 
@@ -41,11 +41,11 @@ public class Topic {
 		this.category = category;
 	}
 
-	public String getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
