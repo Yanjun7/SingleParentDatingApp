@@ -30,7 +30,7 @@ public class CommentService implements ICommentService {
 		
 		return "Comment " + document.get().getId().toString() + " saved." + " " 
 				+ collectionsApiFuture.get().getUpdateTime().toString();
-	}
+	} 
 
 	//get all comments by 
 	public List<String> getCommentsByUserId(String userId) throws InterruptedException, ExecutionException {
