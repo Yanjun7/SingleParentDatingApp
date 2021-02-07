@@ -1,2 +1,0 @@
-include ':app'
-rootProject.name = "SPDA_Team9"
