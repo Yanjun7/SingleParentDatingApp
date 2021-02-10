@@ -37,7 +37,10 @@ public class TopicNew extends AppCompatActivity implements View.OnClickListener,
     Topic topic;
     Category category;
 
+
     private static final String TAG = TopicNew.class.getSimpleName();
+    private static final String username = "ming";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,8 +92,9 @@ public class TopicNew extends AppCompatActivity implements View.OnClickListener,
                     .show();
         }
         else{
-            DB.collection("Topic")
-                    .whereEqualTo("title", title.getText().toString().trim())
+            DB.collection("User")
+                    .whereEqualTo("username", username)
+                    .whereEqualTo("suspended",true)
                     .get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
@@ -100,7 +104,7 @@ public class TopicNew extends AppCompatActivity implements View.OnClickListener,
                                 {
                                     new AlertDialog.Builder(TopicNew.this)
                                             .setTitle("Error!")
-                                            .setMessage("Title exist!")
+                                            .setMessage("You have to refine your message!!")
                                             .setPositiveButton("ok",null)
                                             .show();
                                 }
