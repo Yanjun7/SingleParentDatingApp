@@ -10,7 +10,7 @@ public class User {
     private Gender gender;
     private String location;
     private String token;
-    private boolean suspended = false;
+    public boolean suspended = false;
     
     private String selfDescription;
     private List<String> interest;
@@ -21,6 +21,8 @@ public class User {
     private List<String> friends; //list of userId
 
     public User(){    }
+    
+    
 
 	public String getFullName() {
 		return fullName;

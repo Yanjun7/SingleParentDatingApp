@@ -21,7 +21,15 @@ public class adminController {
 	
 	 @RequestMapping(value = "/detail/{id}")
 	    public String showSupplier(@PathVariable("id") String username, Model model) throws InterruptedException, ExecutionException {
-		 model.addAttribute("user", userService.getUser(username));
+		 User user=userService.getUser(username);
+		 if(user.suspended==false) {
+			 model.addAttribute("suspendTo","suspend");
+		 }
+		 else {
+			 model.addAttribute("suspendTo","unsuspend");
+		 }
+		 
+		 model.addAttribute("user", user);
 	        return "Userdetail";
 	    }
 	 
@@ -32,6 +40,15 @@ public class adminController {
 		 userService.updateUser(user);
 		 return "succedsuspend";
 	    }
+	 @RequestMapping(value = "/unsuspend/{id}")
+	 public String unsuspenduser(@PathVariable("id") String username,Model model) throws InterruptedException, ExecutionException {
+		 User user=userService.getUser(username);
+		 user.setSuspended(false);
+		 userService.updateUser(user);
+		 return "succedsuspend";
+	    }
+	 
+	 
 	
 	
 	
