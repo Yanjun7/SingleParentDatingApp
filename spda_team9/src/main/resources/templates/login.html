@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="ISO-8859-1">
+<title>Login Page</title>
+</head>
+<body>
+	<form th:object="${admin}" th:action="@{/login}"
+		th:method="post">
+		<fieldset>
+			<input type="text" th:field="*{username}" placeholder="Username" />
+			<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+		</fieldset>
+		<fieldset>
+			<input type="password" th:field="*{password}" placeholder="Password" />
+			<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+		</fieldset>
+		<fieldset>
+			<button type="submit">Login</button>
+		</fieldset>
+	</form>
+</body>
+</html>

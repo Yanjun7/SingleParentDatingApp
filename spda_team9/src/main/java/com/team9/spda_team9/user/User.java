@@ -13,8 +13,8 @@ public class User {
     private boolean suspended = false;
     
     private String selfDescription;
-    private List<String> interest;
-    private List<String> profession;
+    private String interest;
+    private String profession;
     private int numberOfKids;
     private String kidsDescription;
     
@@ -86,19 +86,19 @@ public class User {
 		this.selfDescription = selfDescription;
 	}
 
-	public List<String> getInterest() {
+	public String getInterest() {
 		return interest;
 	}
 
-	public void setInterest(List<String> interest) {
+	public void setInterest(String interest) {
 		this.interest = interest;
 	}
 
-	public List<String> getProfession() {
+	public String getProfession() {
 		return profession;
 	}
 
-	public void setProfession(List<String> profession) {
+	public void setProfession(String profession) {
 		this.profession = profession;
 	}
 

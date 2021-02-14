@@ -9,4 +9,7 @@ public interface IUserService {
 	public User getUser(String username) throws InterruptedException, ExecutionException;
 	public String updateUser(User user) throws InterruptedException, ExecutionException;
 	public String deleteUser(String username);
+	
+	public List<User> searchUser(String key) throws InterruptedException, ExecutionException;
+	public List<User> getAllUsers() throws InterruptedException, ExecutionException;
 }

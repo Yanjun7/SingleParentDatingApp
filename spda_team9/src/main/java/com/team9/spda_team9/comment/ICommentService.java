@@ -7,5 +7,7 @@ public interface ICommentService {
 	public String saveForum(Comment comment) throws InterruptedException, ExecutionException;
 	public List<String> getCommentsByUserId(String userId) throws InterruptedException, ExecutionException;
 	public String updateComment(Comment comment) throws InterruptedException, ExecutionException;
-	public String deleteComment(String commentId);
+	public String deleteComment(String commentId) throws InterruptedException, ExecutionException;
+	
+	public List<Comment> getAllUserComment() throws InterruptedException, ExecutionException;
 }

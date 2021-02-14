@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div th:replace="layout/layout.html :: menu"></div>
+
+<img th:src="@{/images/face1.jpg}">
+	<h2>User Detail</h2>
+	<table>
+		
+		<tr>
+			<th>Name</th>
+			<td th:text="${user.fullName}">Name</td>
+		</tr>
+		<tr>
+			<th>Username</th>
+			<td th:text="${user.username}">username</td>
+		</tr>
+		<tr>
+			<th>email</th>
+			<td th:text="${user.email}">Email</td>
+		</tr>
+		<tr>
+			<th>suspension Status</th>
+			
+			<td>Suspended</td>
+		</tr>
+		<tr>
+			<td colspan=2>
+			<a th:href="@{/}"><button>Back to Home</button></a>
+			<a th:href="@{/admin/suspend/}+${user.username}"><button>suspended</button></a>
+			</td>
+		</tr>
+	</table>
+	
+	<div th:replace="layout/layout.html :: footer"></div>
+</body>
+
+</body>
+</html>
