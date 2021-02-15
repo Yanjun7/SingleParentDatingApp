@@ -29,7 +29,7 @@ public class FireBaseService {
 			
 			//Firestore test
 			FileInputStream serviceAccount =
-					  new FileInputStream("./F.json");
+					  new FileInputStream("./FireStoreTest.json");
 
 					FirebaseOptions options = new FirebaseOptions.Builder()
 					  .setCredentials(GoogleCredentials.fromStream(serviceAccount))

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Comment {
 	private String commentId;
-	private LocalDateTime dateTime;
+	private String dateTime;
 	private String body;
 	private String userId;
 	private String replyTo; //to keep track of which reply it is referring to
@@ -20,11 +20,11 @@ public class Comment {
 		this.commentId = commentId;
 	}
 
-	public LocalDateTime getDateTime() {
+	public String getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(LocalDateTime dateTime) {
+	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
 

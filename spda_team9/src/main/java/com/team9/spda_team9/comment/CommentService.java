@@ -11,6 +11,7 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
@@ -63,9 +64,23 @@ public class CommentService implements ICommentService {
 		return collectionsApiFuture.get().getUpdateTime().toString();
 	}
 
-	public String deleteComment(String commentId) {
+	public String deleteComment(String commentId) throws InterruptedException, ExecutionException {
 		Firestore dbFirestore = FirestoreClient.getFirestore();
 		ApiFuture<WriteResult> writeResult = dbFirestore.collection(COL_NAME).document(commentId).delete();
-		return "Comment with id " + commentId + " has been deleted";
+		return "Comment with id " + commentId + " has been deleted\t" + writeResult.get().getUpdateTime().toString();
+	}
+	
+	@Override
+	public List<Comment> getAllUserComment() throws InterruptedException, ExecutionException {
+		Firestore dbFirestore = FirestoreClient.getFirestore();
+		ApiFuture<QuerySnapshot> collectionsApiFuture = dbFirestore.collection(COL_NAME).get();
+		List<QueryDocumentSnapshot> documents = collectionsApiFuture.get().getDocuments();
+		List<Comment> toBeSent = new ArrayList<Comment>();
+		for (QueryDocumentSnapshot document : documents) {
+			  //System.out.println(document.getId() + " => " + document.toObject(Comment.class));
+			toBeSent.add(document.toObject(Comment.class));
+			}
+		
+		return toBeSent;
 	}
 }
