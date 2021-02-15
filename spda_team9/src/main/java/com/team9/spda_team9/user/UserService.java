@@ -22,13 +22,14 @@ import com.google.firebase.cloud.FirestoreClient;
 public class UserService implements IUserService{
 
 	public static final String COL_NAME = "User";
-
+	private String userId = null;
+	private User u = null;
+	
 	public String saveUser(User user) throws InterruptedException, ExecutionException {
 		Firestore dbFirestore = FirestoreClient.getFirestore();
-		ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(user.getUsername())
-				.set(user);
+		ApiFuture<DocumentReference> collectionsApiFuture = dbFirestore.collection(COL_NAME).add(user);
 		
-		return collectionsApiFuture.get().getUpdateTime().toString();
+		return "saved " + collectionsApiFuture.get().getId();
 	}
 
 	//get full user list
@@ -102,9 +103,28 @@ public class UserService implements IUserService{
 
 	public String updateUser(User user) throws InterruptedException, ExecutionException {
 		Firestore dbFirestore = FirestoreClient.getFirestore();
-		ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COL_NAME).document(user.getUsername())
-				.set(user);
-		return collectionsApiFuture.get().getUpdateTime().toString();
+		
+		//getting the userId so to update in database
+		dbFirestore.collection(COL_NAME).listDocuments().forEach(x -> {
+			ApiFuture<DocumentSnapshot> document = x.get();
+			
+			try {
+				u = document.get().toObject(User.class);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			}
+			
+			if (u != null) {
+				if (u.getUsername().equals(user.getUsername()))
+					userId = x.getId();
+			}
+		});
+		
+		ApiFuture<WriteResult> response = dbFirestore.collection(COL_NAME).document(userId).set(user);
+		
+		return "updated " + userId + " at " +  response.get().getUpdateTime().toString();
 	}
 
 	public String deleteUser(String username) {

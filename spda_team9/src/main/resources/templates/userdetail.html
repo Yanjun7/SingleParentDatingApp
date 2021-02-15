@@ -19,19 +19,19 @@
 			<td th:text="${user.username}">username</td>
 		</tr>
 		<tr>
-			<th>email</th>
+			<th>Email</th>
 			<td th:text="${user.email}">Email</td>
 		</tr>
 		<tr>
-			<th>suspension Status</th>
+			<th>Suspension Status</th>
 			
-			<td>Suspended</td>
+			<td th:text="${user.suspended}">Suspended</td>
 		</tr>
 		<tr>
 			<td colspan=2>
 				<a th:href="@{/}"><button>Back to Home</button></a>
 				<a href="#"><button>View Agreement</button></a>
-				<a th:href="@{/admin/suspend/}+${user.username}"><button>Suspend</button></a>
+				<a th:href="@{/}+${suspendTo}+@{/}+${user.username}"><button th:text="${suspendTo}"></button></a>
 			</td>
 		</tr>
 	</table>
