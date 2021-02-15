@@ -7,7 +7,6 @@
 <body>
 	<div th:replace="layout/layout.html :: menu"></div>
 
-<img th:src="@{/images/face1.jpg}">
 	<h2>User Detail</h2>
 	<table>
 		
@@ -30,8 +29,9 @@
 		</tr>
 		<tr>
 			<td colspan=2>
-			<a th:href="@{/}"><button>Back to Home</button></a>
-			<a th:href="@{/admin/suspend/}+${user.username}"><button>suspended</button></a>
+				<a th:href="@{/}"><button>Back to Home</button></a>
+				<a href="#"><button>View Agreement</button></a>
+				<a th:href="@{/admin/suspend/}+${user.username}"><button>Suspend</button></a>
 			</td>
 		</tr>
 	</table>

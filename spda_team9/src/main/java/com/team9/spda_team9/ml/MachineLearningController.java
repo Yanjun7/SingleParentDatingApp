@@ -178,7 +178,6 @@ public class MachineLearningController {
 		String result = "";
 		
 		try {
-
 			URL url = new URL(link);
 			conn = (HttpURLConnection) url.openConnection();
 			conn.setDoOutput(true);
