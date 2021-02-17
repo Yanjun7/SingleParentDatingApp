@@ -4,6 +4,7 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" th:href="@{css/index.css}"/>
 <title>Home Page</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
 		<form action="#" th:action="@{/search}" method="post">
 			<table style="text-align:center ; font-weight: bold">
 				<tr>
-					<td><fieldset> Search: <input type="text" name="keyword" /></fieldset></td>
+					<td><fieldset><input type="text" name="keyword" /></fieldset></td>
 					<td><fieldset><input type="submit" value="Search" /></fieldset></td>
 				<tr>
 			</table>
@@ -26,7 +27,7 @@
 	<h2 th:if="${#lists.isEmpty(users)}" style="text-align: center">Users
 		List is empty</h2>
 	<div align="center">
-		<table th:if="${not #lists.isEmpty(users)}"
+		<table th:if="${not #lists.isEmpty(users)}" id="customers"
 			style="width: 70%; text-align: center">
 			<tr>
 				<th style="text-align: center">Full Name</th>

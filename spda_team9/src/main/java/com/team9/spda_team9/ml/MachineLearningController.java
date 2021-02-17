@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.CollectionReference;
@@ -61,7 +62,7 @@ public class MachineLearningController {
 	//for matching algorithm
 	@Async
 	@PostMapping("/askForMacthes")
-	public String invokeMatchingAlgo() {
+	public ModelAndView invokeMatchingAlgo() {
 		String link = "http://127.0.0.1:5002/matchingcalculation";
 		HttpURLConnection conn = null;
 		String output = null;
@@ -111,7 +112,7 @@ public class MachineLearningController {
 	
 	
 	@GetMapping("/getMatches")
-	public String getMatchingResultFromPython(){
+	public ModelAndView getMatchingResultFromPython(){
 
 				String link = "http://127.0.0.1:5002/matchingcalculation";
 				HttpURLConnection conn = null;
@@ -153,7 +154,8 @@ public class MachineLearningController {
 						conn.disconnect();
 				}
 				
-				return result;
+				 ModelAndView mv = new ModelAndView("AFUserMatching");
+			     return mv;
 	}
 	
 	
@@ -170,9 +172,9 @@ public class MachineLearningController {
 	}
 
 	@GetMapping("/getResult")
-	public String getResultFromPython(ModelMap model) {
+	public ModelAndView getResultFromPython(ModelMap model) {
 
-		String link = "http://127.0.0.1:5001/test";
+		String link = "http://127.0.0.1:5001/sacalculation";
 		HttpURLConnection conn = null;
 		String output = null;
 		String result = "";
@@ -219,11 +221,12 @@ public class MachineLearningController {
 		results.put("result", result);
 		
 		model.addAttribute("results", results);
-		return result;
+		 ModelAndView mv = new ModelAndView("AFSentimentalAnalysis");
+	        return mv;
 	}
 	
 	@PostMapping("/checkSA")
-	public String invokeSentimentalAnalysis(ModelMap model) { // argument should be userId
+	public ModelAndView invokeSentimentalAnalysis(ModelMap model) { // argument should be userId
 		// String link = "http://127.0.0.1:5000/model1?x=" + userId;
 		String link = "http://127.0.0.1:5001/test";
 //		String input = "12";

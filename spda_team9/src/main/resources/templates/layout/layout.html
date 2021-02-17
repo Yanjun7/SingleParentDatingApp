@@ -13,7 +13,7 @@
   <div class="container-fluid">
     <div class="navbar-header">
     	<div class='col-md-1'>
-       <img class="img-xs rounded-circle" th:src="@{/static/images/icon.jpg}" alt="Profile image">
+       
        </div>
       <a class="navbar-brand" th:href="@{/}">Single Parent Dating App</a>
     </div>
@@ -28,6 +28,9 @@
   </div>
 </nav>
 </div>
+
+
+
 
 <footer th:fragment="footer" id='footer' class="page-footer bg-primary text-white">
     <div><small>Now is: <b th:text="${execInfo.now.time}"></b>
